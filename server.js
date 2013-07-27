@@ -57,50 +57,42 @@ function handler (req, res) {
 
 var timeout = 200;
 var speed = 0.5;
-var stop = function(){
-	drone.stop();
-}
 
 io.sockets.on('connection', function (socket) {
 	socket.on('controlTrigger', function (data) {
 		switch(data.function){
 			case "up":
 				drone.up(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "down":
 				drone.down(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "left":
 				drone.left(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "right":
 				drone.right(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "forth":
 				drone.front(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "back":
 				drone.back(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "rotateR":
 				drone.clockwise(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "rotateL":
 				drone.counterClockwise(speed);
-				setTimeout(stop,timeout);
 				break;
 			case "takeoff":
 				drone.takeoff();
 				break;
 			case "land":
 				drone.land();
+				break;
+			case "keyup":
+				drone.stop();
 				break;
 		}
 	});

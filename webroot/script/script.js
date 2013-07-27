@@ -67,3 +67,7 @@ $(document).keypress(function(d){
 			break;
 	}
 })
+
+$(document).keyup(function(){
+	$('#stop').trigger('click');
+})
