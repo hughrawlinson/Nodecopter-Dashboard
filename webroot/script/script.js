@@ -1,5 +1,9 @@
 var socket = io.connect('http://localhost');
+
+setInterval(function(){socket.emit('getData', { function: "nothing" })},500);
+
 socket.on('nodecopterData', function (data) {
+	console.log(data);
 	ractive.set(data);
 });
 
@@ -7,6 +11,11 @@ var ractive = new Ractive({
   el: 'dataContainer',
   template: '#dataTemplate',
   data:{
+  	droneState:{
+  		english:"Loading...",
+  		alertstate:"info",
+  		batteryPercentage:"Loading..."
+  	},
   	flightDynamics:{
   		pitch:"Loading...",
   		roll:"Loading...",
@@ -49,6 +58,12 @@ $(document).keypress(function(d){
 			break;
 		case 99:
 			$('#c').trigger('click');
+			break;
+		case 32:
+			$('#space').trigger('click');
+			break;
+		case 13:
+			$('#enter').trigger('click');
 			break;
 	}
 })

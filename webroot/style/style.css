@@ -1,3 +1,13 @@
 #streamContainer{
 	border:1px solid black;
 }
+canvas{
+	width:inherit;
+	height:inherit;
+	padding:0px;
+	margin:0px;
+}
+
+#streamContainer{
+	padding:0px;
+}

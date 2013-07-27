@@ -9,9 +9,6 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="navbar">
-					<a class="navbar-brand" href="#">N.C.D.B.</a>
-				</div>
 				<div class="page-header">
 						<h1>NodeCopter DashBoard</h1>
 				</div>
@@ -51,14 +48,31 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-4">
-							<button id="z" type="button" data-function="panic" style="width:100%" class="nodecopterCtrlBtn btn btn-danger">Panic</button>
-						</div>
-						<div class="col-lg-4">
+						<div class="col-lg-4 col-offset-4">
 							<button id="x" type="button" data-function="rotateL" style="width:100%" class="nodecopterCtrlBtn btn btn-default">Rot. L</button>
 						</div>
 						<div class="col-lg-4">
 							<button id="c" type="button" data-function="rotateR" style="width:100%" class="nodecopterCtrlBtn btn btn-default">Rot. R</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<hr/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<button id="space" type="button" data-function="takeoff" style="width:100%" class="nodecopterCtrlBtn btn btn-danger">Take Off!</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<hr/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<button id="enter" type="button" data-function="land" style="width:100%" class="nodecopterCtrlBtn btn btn-success">Land</button>
 						</div>
 					</div>
 				</div>
@@ -69,24 +83,45 @@
 					</div>
 				</div>
 				<div class="container col-lg-6">
-					<video class="col-lg-12" id="streamContainer">
+					<div class="col-lg-12" id="streamContainer">
 						
-					</video>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<hr/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-offset-10 col-lg-2">
+					<p style="text-align:right;">Made by Hugh Rawlinson</p>
 				</div>
 			</div>
 		</div>
 		<script src="script/jquery-1.10.2.min.js"></script>
 		<script id="dataTemplate" type='text/ractive'>
 			<h3>Data</h3>
+			{{#droneState}}
+			<div class="alert-{{alertstate}}">
+			  Drone is {{english}}.
+			</div>
+			{{/droneState}}
 			<dl>
 				{{#flightDynamics}}
 				<dt>Pitch:</dt><dd>{{pitch}}</dd>
 				<dt>Roll:</dt><dd>{{roll}}</dd>
 				<dt>Yaw:</dt><dd>{{yaw}}</dd>
 				{{/flightDynamics}}
+				<dt>Battery:</dt><dd>{{droneState.batteryPercentage}}</dd>
 			</dl>
 		</script>
 		<script src="script/Ractive.min.js"></script>
 		<script src="script/script.js"></script>
+		<script src="/dronestream/nodecopter-client.js"></script>
+		<script>
+			// video canvas will auto-size to the DOM-node, or default to 640*360 if no size is set.
+			new NodecopterStream(document.getElementById("streamContainer"));
+		</script>
 	</body>
 </html>
