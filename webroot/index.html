@@ -106,7 +106,7 @@
 		<script id="dataTemplate" type='text/ractive'>
 			<h3>Data</h3>
 			{{#droneState}}
-			<div class="alert-{{alertstate}}">
+			<div class="alert alert-{{alertstate}}">
 			  Drone is {{english}}.
 			</div>
 			{{/droneState}}
@@ -115,6 +115,7 @@
 				<dt>Pitch:</dt><dd>{{pitch}}</dd>
 				<dt>Roll:</dt><dd>{{roll}}</dd>
 				<dt>Yaw:</dt><dd>{{yaw}}</dd>
+				<dt>Altitude:</dt><dd>{{altitude}}</dd>
 				{{/flightDynamics}}
 				<dt>Battery:</dt><dd>{{droneState.batteryPercentage}}</dd>
 			</dl>

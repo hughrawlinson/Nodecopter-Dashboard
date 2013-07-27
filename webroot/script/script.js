@@ -19,7 +19,8 @@ var ractive = new Ractive({
   	flightDynamics:{
   		pitch:"Loading...",
   		roll:"Loading...",
-  		yaw:"Loading..."
+  		yaw:"Loading...",
+  		altitude:"Loading..."
   	}
   }
 });
@@ -69,5 +70,6 @@ $(document).keypress(function(d){
 })
 
 $(document).keyup(function(){
+	console.log("keyup is working");
 	$('#stop').trigger('click');
 })

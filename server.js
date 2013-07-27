@@ -31,6 +31,7 @@ var setToClientData = function(data){
 			'pitch':data.demo.rotation.pitch,
 			'roll':data.demo.rotation.roll,
 			'yaw':data.demo.rotation.yaw,
+			'altitude':data.demo.altitude,
 		}
 	};
 	
