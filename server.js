@@ -92,7 +92,7 @@ io.sockets.on('connection', function (socket) {
 			case "land":
 				drone.land();
 				break;
-			case "keyup":
+			case "stop":
 				drone.stop();
 				break;
 		}

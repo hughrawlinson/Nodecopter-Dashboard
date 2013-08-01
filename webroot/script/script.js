@@ -3,7 +3,6 @@ var socket = io.connect('http://localhost');
 setInterval(function(){socket.emit('getData', { function: "nothing" })},500);
 
 socket.on('nodecopterData', function (data) {
-	console.log(data);
 	ractive.set(data);
 });
 
@@ -27,7 +26,6 @@ var ractive = new Ractive({
 
 $(".nodecopterCtrlBtn").click(function(){
 	var dataFunction = $(this).attr("data-function");
-	console.log(dataFunction);
 	socket.emit('controlTrigger', { function: dataFunction });
 });
 
@@ -70,6 +68,5 @@ $(document).keypress(function(d){
 })
 
 $(document).keyup(function(){
-	console.log("keyup is working");
 	$('#stop').trigger('click');
 })
