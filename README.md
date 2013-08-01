@@ -6,7 +6,7 @@ A web-based nodecopter dashboard I made at Nodecopter Manchester on 27 July 2013
 
 ## Setup
 
-To set this up, make sure you've got node installed on your machine, cd to the directory you wish to install it in, run ```git@github.com:hughrawlinson/Nodecopter-Dashboard.git```, cd to Nodecopter-Dashboard, and run ```sudo node server.js```. Also, you'll need to be connected to the wifi network of a Parrot AR 2.0 drone. Almost forgot that last bit. Then you'll need to open your browser and go to http://localhost:1025/ and start controlling your drone.
+To set this up, make sure you've got node installed on your machine, cd to the directory you wish to install it in, run ```git@github.com:hughrawlinson/Nodecopter-Dashboard.git```, cd to Nodecopter-Dashboard, and run ```npm install``` to install dependencies. To run the server, run ```node server.js```. Also, you'll need to be connected to the wifi network of a Parrot AR 2.0 drone. Almost forgot that last bit. Then you'll need to open your browser and go to http://localhost:1025/ and start controlling your drone.
 
 If you get the video working, please let me know what I did wrong and submit a pull request.
 
